@@ -1,4 +1,3 @@
-// Array com os 4 links demonstrativos
 const links = [
     "https://developer.mozilla.org",
     "https://github.com",
@@ -6,13 +5,39 @@ const links = [
     "https://javascript.info"
 ];
 
-const button = document.getElementById('random-btn');
+const randomBtn = document.getElementById('random-btn');
+const sequentialBtn = document.getElementById('sequential-btn');
 
-button.addEventListener('click', () => {
-    // Gera um índice aleatório entre 0 e o tamanho do array (4)
-    const randomIndex = Math.floor(Math.random() * links.length);
-    const selectedLink = links[randomIndex];
+let sequentialIndex = 0;
+let isProcessing = false;
+
+
+function openLink(link) {
+    if (isProcessing) return;
     
-    // Redireciona o usuário (abre em uma nova aba)
-    window.open(selectedLink, '_blank');
+    isProcessing = true;
+    window.open(link, '_blank');
+    
+    setTimeout(() => {
+        isProcessing = false;
+    }, 500);
+}
+
+// Botão 1: Link Aleatório
+randomBtn.addEventListener('click', () => {
+    const randomIndex = Math.floor(Math.random() * links.length);
+    openLink(links[randomIndex]);
+});
+
+// Botão 2: Link Sequencial
+sequentialBtn.addEventListener('click', () => {
+    openLink(links[sequentialIndex]);
+
+    if (isProcessing) { 
+        sequentialIndex++;
+       
+        if (sequentialIndex >= links.length) {
+            sequentialIndex = 0;
+        }
+    }
 });

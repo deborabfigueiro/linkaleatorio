@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #e1e9f4; 
+    background-color: #dddee0; 
     color: #333;
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@ p {
 }
 
 button {
-    background-color: #111;
+    background-color: #5a7ea1;
     color: #fff;
     border: none;
     padding: 15px 30px;
@@ -53,11 +53,27 @@ button {
 }
 
 button:hover {
-    background-color: #333;
+    background-color: #222427;
 }
 
 button:active {
     transform: scale(0.98);
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-outline {
+    background-color: #dcb365;
+    color: #fff;
+    border: none;
+}
+
+.btn-outline:hover {
+    background-color: #222427;
 }
 
 @media (max-width: 480px) {
